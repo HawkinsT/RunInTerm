@@ -1,11 +1,12 @@
 # RunInTerm
 
-RunInTerm is a plug-in for the [Neovim](https://www.neovim.io) and [Vim](https://www.vim.org/) 8+ editors, providing a convenient way of intelligently executing buffer contents and terminal commands via Vim's inbuilt terminal emulator.
+RunInTerm is a plug-in for the [Neovim](https://www.neovim.io) and [Vim 8+](https://www.vim.org/) editors, providing a convenient way of intelligently executing buffer contents and terminal commands via Vim's inbuilt terminal emulator.
 
 ## Table of contents
 
   * [Installation](#installation)
   * [Quick Start](#quick-start)
+  * [Key Bindings](#key-bindings)
   * [Settings](#settings)
 
 ## Installation
@@ -42,7 +43,7 @@ There is a special case when an empty string is passed as the first argument; `R
 
 ## Key Bindings
 
-No key bindings are set by this plug-in. You may specify your own in your `vimrc` file, e.g:
+No key bindings are set by default; you may specify your own in your `vimrc` file, e.g:
 
 ```vim
 nnoremap <leader>r :call RunInTerminal()<CR>
@@ -52,13 +53,13 @@ nnoremap <leader>t :call RunInTerminal("")<CR>
 You may also specify custom bindings for specific file types, e.g:
 
 ```vim
-autocmd FileType python  nnoremap <buffer> <leader>r :call RunInTerminal("py -3.7")<CR>
+autocmd FileType python    nnoremap <buffer> <leader>r :call RunInTerminal("py -3.7")<CR>
 ```
 
 ## Settings
 
-| Option               | Default  | Description                                       |
-|----------------------|----------|---------------------------------------------------|
-| `g:RunInTerm_pos`    | `bottom` | Terminal position (`left`,`right`,`top`,`bottom`) |
-| `g:RunInTerm_width`  |          | Terminal width (if positioned to the left/right)  |
-| `g:RunInTerm_height` | 16       | Terminal height (if positioned at the top/bottom) |
+| Option               | Default  | Description                                          |
+|----------------------|----------|------------------------------------------------------|
+| `g:RunInTerm_pos`    | "bottom" | Terminal position ("left", "right", "top", "bottom") |
+| `g:RunInTerm_width`  |          | Terminal width (if positioned to the left/right)     |
+| `g:RunInTerm_height` | 16       | Terminal height (if positioned at the top/bottom)    |
