@@ -33,11 +33,11 @@ This plug-in may be similarly loaded using other plug-in managers; for this, see
 
 This plug-in provides the function `RunInTerminal()`, which may take up to two optional arguments.
 
-If run without arguments, it executes the contents of the current buffer via its FileType. For example, within a python buffer, calling `RunInTerminal()` will execute `python example_buffer_name.py.tmp` within Vim's terminal emulator. 
+If run without arguments, it executes the contents of the current buffer via its `FileType`. For example, within a python buffer, `:call RunInTerminal()` will execute `python RunInTerm_example.py.tmp` within Vim's terminal emulator. 
 
-If run with one argument, this argument will be used instead of the buffer's FileType. For example, calling `RunInTerminal("py -2.7")` will execute `py -2.7 example_buffer_name.py.tmp`.
+If run with one argument, this argument will be used instead of the buffer's `FileType`. For example, `:call RunInTerminal("py -2.7")` will execute `py -2.7 RunInTerm_example.py.tmp`.
 
-If run with two arguments, a temporary file containing the buffer contents will not be passed to the terminal.
+If run with two arguments, the arguments will be passed to the terminal, however a temporary file containing the buffer contents will not.
 
 There is a special case when an empty string is passed as the first argument; `RunInTerminal("")`. In this case, Vim's terminal emulator is launched and focus is switched to the terminal instead of remaining on the current window.
 
@@ -58,8 +58,8 @@ autocmd FileType python    nnoremap <buffer> <leader>r :call RunInTerminal("py -
 
 ## Settings
 
-| Option               | Default  | Description                                          |
-|----------------------|----------|------------------------------------------------------|
-| `g:RunInTerm_pos`    | "bottom" | Terminal position ("left", "right", "top", "bottom") |
-| `g:RunInTerm_width`  |          | Terminal width (if positioned to the left/right)     |
-| `g:RunInTerm_height` | 16       | Terminal height (if positioned at the top/bottom)    |
+| Option               | Default  | Description                                                                 |
+|----------------------|----------|-----------------------------------------------------------------------------|
+| `g:RunInTerm_pos`    | "bottom" | Terminal position (allowed values are "left", "right", "top", and "bottom") |
+| `g:RunInTerm_height` | 16       | Terminal height (if positioned at the top/bottom)                           |
+| `g:RunInTerm_width`  |          | Terminal width (if positioned to the left/right)                            |
