@@ -19,7 +19,9 @@ call plug#begin()
 call plug#end()
 ```
 
-Then run `:PlugInstall` from within Vim. Alternatively, this plug-in may be loaded for only specific file types using (e.g. for perl and python):
+Then run `:PlugInstall` from within Vim.
+
+Alternatively, this plug-in may be loaded for only specific file types using (e.g. for perl and python):
 
 ```vim
 call plug#begin()
