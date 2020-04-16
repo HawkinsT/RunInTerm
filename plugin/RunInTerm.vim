@@ -88,5 +88,3 @@ function! RunInTerminal(...)
   endif
 
 endfunction
-
-" nnoremap <leader>r :call RunInTerminal()<CR>
