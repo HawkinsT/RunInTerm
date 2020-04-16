@@ -33,9 +33,9 @@ function! RunInTerminal(...)
   endif
 
   let g:RunInTerm_temp_filename = "RunInTerm_" . @% . ".tmp"
-  execute "write! " . g:RunInTerm_temp_filename
 
   if !a:0
+    execute "write! " . g:RunInTerm_temp_filename
     let argument = " " . &filetype . " " . g:RunInTerm_temp_filename 
   else
     let argument = a:1
@@ -44,6 +44,7 @@ function! RunInTerminal(...)
       if a:0 > 1
         let argument .= " " . a:2
       else
+        execute "write! " . g:RunInTerm_temp_filename
         let argument .= " " . g:RunInTerm_temp_filename
       endif
     endif
