@@ -2,6 +2,8 @@
 
 RunInTerm is a plug-in for the [Neovim](https://www.neovim.io) and [Vim 8+](https://www.vim.org/) editors, providing a convenient way of intelligently executing buffer contents and terminal commands via Vim's inbuilt terminal emulator.
 
+![RunInTerm Demo](demo/demo.gif)
+
 ## Table of contents
 
   * [Installation](#installation)
@@ -48,8 +50,8 @@ There is a special case when an empty string is passed as the first argument; `R
 No key bindings are set by default; you may specify your own in your `vimrc` file, e.g:
 
 ```vim
-nnoremap <leader>r :call RunInTerminal()<CR>
-nnoremap <leader>t :call RunInTerminal("")<CR>
+nnoremap <silent> <leader>r :call RunInTerminal()<CR>
+nnoremap <silent> <leader>t :call RunInTerminal("")<CR>
 ```
 
 You may also specify custom bindings for specific file types, e.g:
