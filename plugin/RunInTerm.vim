@@ -88,7 +88,7 @@ function! RunInTerminal(...)
   endif
 
   " If terminal created with no arguments or 'bash', keep focus
-  if a:1 == "" || a:1 == "bash"
+  if trim(argument) == "" || trim(argument) == "bash"
     startinsert
   else
     call win_gotoid(code_window)
