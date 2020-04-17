@@ -31,19 +31,19 @@ call plug#begin()
 call plug#end()
 ```
 
-This plug-in may be similarly loaded using other plug-in managers; for this, see their respective documentation.
+This plug-in may be similarly loaded using other plug-in managers; for this, see their respective documentations.
 
 ## Quick Start
 
 This plug-in provides the function `RunInTerminal()`, which may take up to two optional arguments.
 
-If run without arguments, it executes the contents of the current buffer via its `FileType`. For example, within a python buffer, `:call RunInTerminal()` will execute `python RunInTerm_example.py.tmp` within Vim's terminal emulator. 
+If run without arguments, it executes the contents of the current buffer via its `FileType`. For example, within a python buffer, `:call RunInTerminal()` will execute `python RunInTerm_example.py.tmp` within Vim's terminal emulator (where RuneInTerm_example.py.tmp is a temporary file that is automatically created and cleaned up). 
 
 If run with one argument, this argument will be used instead of the buffer's `FileType`. For example, `:call RunInTerminal("py -2.7")` will execute `py -2.7 RunInTerm_example.py.tmp`.
 
-If run with two arguments, the arguments will be passed to the terminal, however a temporary file containing the buffer contents will not.
+If run with two arguments, the arguments will be passed to the terminal, however no temporary file containing the buffer's contents will be created.
 
-There is a special case when an empty string is passed as the first argument; `RunInTerminal("")`. In this case, Vim's terminal emulator is launched and focus is switched to the terminal instead of remaining on the current window.
+There is a special case if an empty string is passed as the first argument; `RunInTerminal("")`. In this case, Vim's terminal emulator is launched and focus is switched to the terminal instead of remaining on the current window. Again, no temporary file is created here.
 
 ## Key Bindings
 
@@ -58,6 +58,12 @@ You may also specify custom bindings for specific file types, e.g:
 
 ```vim
 autocmd FileType python    nnoremap <buffer> <leader>r :call RunInTerminal("py -3.7")<CR>
+```
+
+Or pass more advanced commands, e.g:
+
+```vim
+autocmd FileType julia     nnoremap <buffer> <leader>r :call RunInTerminal("julia", @%." --machinefile machinefile")<CR>
 ```
 
 ## Settings
