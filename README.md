@@ -45,7 +45,7 @@ If run with two arguments, the arguments will be passed to the terminal, however
 
 If run with three arguments, a temporary file will be created and passed to the terminal, with the first and third arguments being passed before and after the temporary filename (the second argument will be ignored). For example, `:call RunInTerminal("julia","","--machinefile machinefile")` will execute `julia RunInTerm_exampleFilename.jl.tmp --machinefile machinefile`.
 
-There are also two special cases: if an empty string or "bash" are passed as the first argument; `RunInTerminal("")`, `RunInTerminal("bash")`, then Vim's terminal emulator is launched and focus is switched to the terminal instead of remaining on the current window. For `RunInTerminal("")`, no temporary file is created.
+There are also two special cases: if an empty string or "bash" are passed as the first argument, e.g. `RunInTerminal("")`, `RunInTerminal("bash","")`, then Vim's terminal emulator is launched and focus is switched to the terminal instead of remaining on the current window. In the special case of `RunInTerminal("")`, no temporary file is created.
 
 ## Key Bindings
 
