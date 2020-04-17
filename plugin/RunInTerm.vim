@@ -7,12 +7,16 @@ if &compatible
 endif
 let g:loaded_RunInTerm = v:true
 
+if !exists("g:RunInTerm_pos")
+  let g:RunInTerm_pos = "bottom"
+endif
+
 if !exists("g:RunInTerm_height")
   let g:RunInTerm_height = 16
 endif
 
-if !exists("g:RunInTerm_pos")
-  let g:RunInTerm_pos = "bottom"
+if !exists("g:RunInTerm_width")
+  let g:RunInTerm_width = 84
 endif
 
 function! RunInTerminal(...)
@@ -38,9 +42,8 @@ function! RunInTerminal(...)
     execute "write! " . g:RunInTerm_temp_filename
     let argument = " " . &filetype . " " . g:RunInTerm_temp_filename 
   else
-    let argument = a:1
+    let argument = " " . a:1
     if a:1 != ""
-      let argument = " " . argument
       if a:0 == 2
         let argument .= " " . a:2
       else
@@ -85,7 +88,7 @@ function! RunInTerminal(...)
   endif
 
   " If terminal created with no arguments, keep focus
-  if argument != ""
+  if argument != "" && argument != " bash"
     call win_gotoid(code_window)
   else
     startinsert
