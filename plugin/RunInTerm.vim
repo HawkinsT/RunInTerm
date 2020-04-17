@@ -87,11 +87,11 @@ function! RunInTerminal(...)
     autocmd BufWinLeave * :call delete(g:RunInTerm_temp_filename)
   endif
 
-  " If terminal created with no arguments, keep focus
-  if argument != "" && argument != " bash"
-    call win_gotoid(code_window)
-  else
+  " If terminal created with no arguments or 'bash', keep focus
+  if a:1 == "" || a:1 == "bash"
     startinsert
+  else
+    call win_gotoid(code_window)
   endif
 
 endfunction
